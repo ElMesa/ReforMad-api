@@ -1,4 +1,4 @@
-package persistance;
+package reformad.api.persistance;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Issue;
+import reformad.api.model.Issue;
 
 public class IssueDAO {
 
@@ -82,10 +82,10 @@ public class IssueDAO {
 		Statement statement = null;
 		ResultSet rs = null;
 		ArrayList<Issue> issues = null;
-		;
 		Issue issue = null;
 		boolean isError = false;
 
+		issues = new ArrayList<Issue>();
 		String query = "SELECT * FROM issue;";
 
 		try {

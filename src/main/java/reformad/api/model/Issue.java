@@ -1,4 +1,4 @@
-package model;
+package reformad.api.model;
 
 public class Issue {
 	private long id;
