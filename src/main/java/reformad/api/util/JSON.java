@@ -1,6 +1,8 @@
 package reformad.api.util;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import com.fasterxml.jackson.core.JsonFactory;
@@ -13,6 +15,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JSON {
 
 	private static ObjectMapper mapper = new ObjectMapper();
+	private static final DateFormat df;
+	
+	static {
+		mapper = new ObjectMapper();
+		df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		mapper.setDateFormat(df);
+	}
 
 	public static String encode(Object o) {
 		String json = "";

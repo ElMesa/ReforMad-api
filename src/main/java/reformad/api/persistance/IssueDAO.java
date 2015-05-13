@@ -32,8 +32,8 @@ public class IssueDAO {
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet generatedKeys = null;
-
-		String SQL_CREATE = "INSERT INTO issue (latitude, longitude) VALUES (?, ?)";
+		
+		String SQL_CREATE = "INSERT INTO issue (latitude, longitude, creation_date, \"user\", district, neighbourhood, address) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			con = getConnection();
@@ -43,6 +43,11 @@ public class IssueDAO {
 					Statement.RETURN_GENERATED_KEYS);
 			statement.setFloat(1, issue.getLatitude());
 			statement.setFloat(2, issue.getLongitude());
+			statement.setTimestamp(3, new java.sql.Timestamp(issue.getCreation_date().getTime()));
+			statement.setString(4, issue.getUser());
+			statement.setString(5, issue.getDistrict());
+			statement.setString(6, issue.getNeighbourhood());
+			statement.setString(7, issue.getAddress());
 
 			int affectedRows = statement.executeUpdate();
 			if (affectedRows > 0) {

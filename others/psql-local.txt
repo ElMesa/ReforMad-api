@@ -1,0 +1,5 @@
+# Reset BD (DROP + CREATE)
+psql -d reformad -a -f reformaddb-reset.sql
+
+# Connect interactive
+psql -d reformad
